@@ -73,12 +73,12 @@ for i in range(N):
     t, Y = SSA(prop, stoch, Y0, tspan, k)
 
     if i == 0:
-        plt.plot(t, Y[:, 0], 'r', label = "S")
-        plt.plot(t, Y[:, 1], 'b', label = "I")
+        plt.plot(t, Y[:, 0], 'y', label = "S")
+        plt.plot(t, Y[:, 1], 'r', label = "I")
         plt.plot(t, Y[:, 2], 'g', label = "R")
     else:
-        plt.plot(t, Y[:, 0], 'r')
-        plt.plot(t, Y[:, 1], 'b')
+        plt.plot(t, Y[:, 0], 'y')
+        plt.plot(t, Y[:, 1], 'r')
         plt.plot(t, Y[:, 2], 'g')
 
 
