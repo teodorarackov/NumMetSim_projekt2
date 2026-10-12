@@ -22,8 +22,8 @@ tspan = [0, 120]
 
 sol = solve_ivp(sir, tspan, y0)
 
-plt.plot(sol.t, sol.y[0], 'r', label='S')
-plt.plot(sol.t, sol.y[1], 'b', label='I')
+plt.plot(sol.t, sol.y[0], 'y', label='S')
+plt.plot(sol.t, sol.y[1], 'r', label='I')
 plt.plot(sol.t, sol.y[2], 'g', label='R')
 
 plt.xlabel('Tid')
