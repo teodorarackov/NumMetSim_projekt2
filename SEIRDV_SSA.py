@@ -7,14 +7,14 @@ gamma = 1 / 7
 population = 1000
 alfa = 0.5 #väldigt liten ger inge möten mellan folk - tar längre tid för alla andra reaktioner att ske, högre värde - tidigare sker reaktioner
 # inkubationstid = 1 / alfa
-fi = 0.02
+mu = 0.02
 v = 1
 
 tspan = [0, 120]
 Y0 = [995, 0, 5, 0, 0, 0] 
 N = 4
 
-k = [beta, gamma, population, alfa, fi, v]
+k = [beta, gamma, population, alfa, mu, v]
 
 def SSA(prop, stoch, X0, tspan, coeff):
     tvec = np.zeros(1)
@@ -68,7 +68,7 @@ def prop(Y, k):
     gamma = k[1]
     population = k[2]
     alfa = k[3]
-    fi = k[4]
+    mu = k[4]
     v = k[5]
 
     S = Y[0]
@@ -81,7 +81,7 @@ def prop(Y, k):
     a1 = beta / population * I * S
     a2 = alfa * E
     a3 = gamma * I
-    a4 = fi * I
+    a4 = mu * I
     a5 = v
 
 
