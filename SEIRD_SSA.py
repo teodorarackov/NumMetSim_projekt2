@@ -7,7 +7,8 @@ gamma = 1 / 7
 population = 1000
 alfa = 0.5 #väldigt liten ger inge möten mellan folk - tar längre tid för alla andra reaktioner att ske, högre värde - tidigare sker reaktioner
 # inkubationstid = 1 / alfa
-mu = 0.02
+mu = 1/13
+
 
 tspan = [0, 120]
 Y0 = [995, 0, 5, 0, 0] 

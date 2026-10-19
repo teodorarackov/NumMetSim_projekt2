@@ -82,7 +82,7 @@ def prop(Y, k):
     a2 = alfa * E
     a3 = gamma * I
     a4 = mu * I
-    a5 = v
+    a5 = v if S > 0 else 0
 
 
     return np.array([a1, a2, a3, a4, a5])

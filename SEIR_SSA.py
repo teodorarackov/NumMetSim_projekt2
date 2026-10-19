@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 beta = 0.3
 gamma = 1 / 7
 population = 1000
-alfa = 1 #väldigt liten ger inge möten mellan folk - tar längre tid för alla andra reaktioner att ske, högre värde - tidigare sker reaktioner
+alfa = 1 / 7 #väldigt liten ger inge möten mellan folk - tar längre tid för alla andra reaktioner att ske, högre värde - tidigare sker reaktioner
 # inkubationstid = 1 / alfa
 
 tspan = [0, 120]

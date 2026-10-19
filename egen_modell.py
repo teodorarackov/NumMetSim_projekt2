@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 beta = 0.3 
 gamma = 1 / 7 #sjuk 7 dagar/individ
-population = 1000
+N = 1000
 alfa = 1 / 2 #2 dagar inkubationstid 
 mu = 1 / 50 #dagar/individ innan död
 lam = 5 #5 pers vacc/tidsenhet
@@ -15,9 +15,9 @@ phi = 1 / 14 # dagar till immun från dos2
 
 tspan = [0, 120]
 Y0 = [995, 0, 5, 0, 0, 0, 0, 0] #S, E, I, R, D, V1, V2, Im
-N = 5
+simuleringar = 5
 
-k = [beta, gamma, population, alfa, mu, lam, theta, epsilon1, epsilon2, phi]
+k = [beta, gamma, N, alfa, mu, lam, theta, epsilon1, epsilon2, phi]
 
 def SSA(prop, stoch, X0, tspan, coeff):
     tvec = np.zeros(1)
@@ -73,7 +73,7 @@ def stoch():
 def prop(Y, k):
     beta = k[0]
     gamma = k[1]
-    population = k[2]
+    N = k[2]
     alfa = k[3]
     mu = k[4]
     lam = k[5]
@@ -92,20 +92,20 @@ def prop(Y, k):
     Im = Y[7]
 
 
-    a1 = beta / population * I * S
+    a1 = beta / N * I * S
     a2 = alfa * E
     a3 = gamma * I
     a4 = mu * I
     a5 = lam  if S > 0 else 0
     a6 = theta * V1
-    a7 = epsilon1 * beta / population * I * V1
-    a8 = epsilon2 * beta / population * I * V2
+    a7 = epsilon1 * beta / N * I * V1
+    a8 = epsilon2 * beta / N * I * V2
     a9 = phi * V2
 
 
     return np.array([a1, a2, a3, a4, a5, a6, a7, a8, a9])
 
-for i in range(N):
+for i in range(simuleringar):
     t, Y = SSA(prop, stoch, Y0, tspan, k)
 
     if i == 0:
